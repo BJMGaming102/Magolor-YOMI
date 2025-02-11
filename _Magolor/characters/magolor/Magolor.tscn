@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_Magolor/characters/magolor/MagolorSpriteFrames.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=3]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=4]
+[ext_resource path="res://_Magolor/characters/magolor/states/EmptyState.gd" type="Script" id=5]
+[ext_resource path="res://_Magolor/characters/magolor/icons/mago action sprites1.png" type="Texture" id=6]
+[ext_resource path="res://_Magolor/characters/magolor/icons/mago action sprites2.png" type="Texture" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends CharacterState
+
+export var defensive = false
+
+var started_falling = false
+
+func _enter():
+	host.start_invulnerability()
+	host.start_projectile_invulnerability()
+	interruptible_on_opponent_turn = false
+	host.opponent.reset_combo()
+	started_falling = false
+	host.use_burst()
+
+func _frame_15():
+	host.end_invulnerability()
+	started_falling = true
+
+func _tick():
+	if started_falling:
+		host.apply_grav()
+	host.apply_forces()
+	if current_tick > 15:
+		host.end_invulnerability()
+	else:
+		host.start_invulnerability()
+
+func _exit():
+	host.end_projectile_invulnerability()
+
+func is_usable():
+	return host.burst_enabled and .is_usable() and (host.bursts_available > 0)
+
+func _on_hit_something(obj, hitbox):
+	._on_hit_something(obj, hitbox)
+	if obj.is_in_group(\"Fighter\"):
+		if defensive:
+			host.opponent.start_invulnerability()
+			if host.initiative:
+				host.gain_super_meter((host.MAX_SUPER_METER * 5) / 3)
+"
+
+[node name="Magolor" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="Flip" index="0"]
+material = SubResource( 1 )
+frames = ExtResource( 2 )
+
+[node name="ExamplePunch" type="Node2D" parent="StateMachine" index="57"]
+script = ExtResource( 5 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+anim_length = 18
+enter_force_dir_x = "2"
+enter_force_speed = "4"
+title = "Example Punch"
+type = 1
+button_texture = ExtResource( 6 )
+self_interruptable = false
+interrupt_from_string = "Grounded"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "GroundedAttack
+GroundedSpecial"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/ExamplePunch" index="0"]
+position = Vector2( -1, 0 )
+z_index = 1000
+script = ExtResource( 4 )
+x = 16
+y = -16
+width = 15
+height = 12
+damage = 100
+minimum_damage = 40
+hitstun_ticks = 7
+hitlag_ticks = 3
+victim_hitlag = 7
+damage_proration = 9001
+block_punishable = true
+plus_frames = 5
+dir_y = "-0.1"
+knockback = "5.0"
+launch_reversible = true
+start_tick = 7
+active_ticks = 15
+
+[node name="TempOrb" type="Node2D" parent="StateMachine" index="58"]
+script = SubResource( 2 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+type = 2
+button_texture = ExtResource( 7 )
+air_type = 2
+uses_air_movement = true
+land_cancel = true
+interrupt_from_string = "Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "GroundedAttack
+GroundedSpecial
+AerialAttack
+AerialSpecial"
