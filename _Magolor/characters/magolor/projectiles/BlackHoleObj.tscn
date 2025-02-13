@@ -1,0 +1,218 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_Magolor/characters/magolor/MagolorSpriteFrames.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://_Magolor/characters/magolor/Black Hole.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=4]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/Black Hole Hit.gd" type="Script" id=5]
+[ext_resource path="res://_Magolor/characters/magolor/particles/BlackHole Particles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole.gd" type="Script" id=7]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Black Hole.wav" type="AudioStream" id=8]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Poof.wav" type="AudioStream" id=9]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Static Like.wav" type="AudioStream" id=10]
+[ext_resource path="res://_Magolor/characters/magolor/particles/BlackholePoof.tscn" type="PackedScene" id=11]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Electric Hit.wav" type="AudioStream" id=12]
+[ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=13]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Explosion Electric.wav" type="AudioStream" id=14]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Laser Charge.wav" type="AudioStream" id=15]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[node name="BaseProjectile" instance=ExtResource( 1 )]
+scale = Vector2( 0.25, 0.25 )
+air_friction = "0.4"
+movable = false
+projectile_immune = true
+
+[node name="Sprite" parent="Flip" index="0"]
+scale = Vector2( 4, 4 )
+frames = ExtResource( 2 )
+animation = "Black Hole"
+
+[node name="Charge" parent="Flip/Particles" index="0" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+material = SubResource( 1 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 10
+free = false
+one_shot = false
+start_enabled = false
+
+[node name="BlackHole" parent="Flip/Particles" index="1" instance=ExtResource( 6 )]
+unique_name_in_owner = true
+material = SubResource( 2 )
+free = false
+one_shot = false
+start_enabled = false
+
+[node name="BlackHolePoof" parent="Flip/Particles" index="2" instance=ExtResource( 11 )]
+unique_name_in_owner = true
+material = SubResource( 3 )
+scale = Vector2( 5, 5 )
+free = false
+start_enabled = false
+
+[node name="Black Hole" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+stream = ExtResource( 8 )
+
+[node name="Poof" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+stream = ExtResource( 9 )
+
+[node name="Inhale" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+stream = ExtResource( 10 )
+volume_db = -15.0
+
+[node name="Success" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+stream = ExtResource( 15 )
+volume_db = 0.731
+pitch_scale = 0.83
+
+[node name="CollisionBox" parent="." index="2"]
+width = 300
+height = 300
+
+[node name="Hurtbox" parent="." index="3"]
+width = 100
+height = 100
+
+[node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+sprite_animation = "Black Hole"
+anim_length = 60
+sprite_anim_length = 40
+ticks_per_frame = 2
+endless = false
+enter_sfx = ExtResource( 8 )
+enter_sfx_volume = -5.0
+move_x = 0
+
+[node name="Black Hole" type="Node2D" parent="StateMachine" index="1"]
+script = ExtResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+fallback_state = "Default"
+sprite_animation = "Black Hole Squish"
+anim_length = 40
+sprite_anim_length = 40
+loop_animation = true
+absolute_loop = true
+endless = true
+enter_force_dir_y = "-1"
+enter_force_speed = "0.16"
+timed_particle_scene = ExtResource( 11 )
+timed_spawn_particle_tick = 120
+move_x = 0
+move_y = -5
+num_hits = 100
+fizzle_on_ground = false
+fizzle_on_walls = false
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Black Hole" index="0"]
+z_index = 1000
+script = ExtResource( 13 )
+width = 50
+height = 50
+can_draw = false
+damage = 3
+damage_in_combo = 1
+minimum_damage = 1
+hitlag_ticks = 0
+victim_hitlag = 2
+combo_victim_hitlag = 0
+scale_combo = false
+combo_scaling_amount = 0
+di_modifier = "0"
+sdi_modifier = "0"
+meter_gain_modifier = "0.5"
+replace_hit_particle = true
+hit_sound = ExtResource( 12 )
+knockback = "7"
+vacuum = true
+pushback_x = "0"
+grounded_hit_state = "HurtAerial"
+knockdown_extends_hitstun = false
+start_tick = 1
+active_ticks = 999
+looping = true
+loop_active_ticks = 3
+loop_inactive_ticks = 1
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/Black Hole" index="1"]
+z_index = 1000
+script = ExtResource( 13 )
+y = 20
+width = 60
+height = 60
+can_draw = false
+damage = 50
+damage_in_combo = 1
+minimum_damage = 1
+combo_hitstun_ticks = 30
+hitlag_ticks = 0
+victim_hitlag = 20
+combo_victim_hitlag = 20
+replace_hit_particle = true
+hit_sound = ExtResource( 14 )
+hit_sound_volume = -9.0
+dir_x = "0"
+dir_y = "1.0"
+knockback = "8"
+pushback_x = "0"
+grounded_hit_state = "HurtAerial"
+knockdown = true
+hard_knockdown = true
+ground_bounce = false
+start_tick = 120
+active_ticks = 1
+loop_active_ticks = 3
+loop_inactive_ticks = 1

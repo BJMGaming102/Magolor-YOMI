@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://_Magolor/characters/magolor/particles/StaffParticles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_Magolor/characters/magolor/particles/particleeffects/Hit.png" type="Texture" id=2]
+[ext_resource path="res://_Magolor/characters/magolor/particles/particleeffects/Star.png" type="Texture" id=3]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.08157, 0.0, 0, 0 ]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+render_priority = 12
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+
+[node name="CPUParticles2D" parent="." index="1"]
+scale = Vector2( 0.1, 0.1 )
+amount = 6
+speed_scale = 3.0
+explosiveness = 1.0
+lifetime_randomness = 1.0
+fixed_fps = 45
+texture = ExtResource( 3 )
+emission_sphere_radius = 0.01
+spread = 9.91
+gravity = Vector2( 0, 400 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.51
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+damping = 300.0
+scale_amount = 0.3
+color = Color( 1, 0.721569, 0.721569, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="2"]
+scale = Vector2( 0.15, 0.15 )
+amount = 3
+lifetime = 3.0
+speed_scale = 6.0
+explosiveness = 1.0
+lifetime_randomness = 0.3
+fixed_fps = 45
+texture = ExtResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 0.0
+gravity = Vector2( 0, 200 )
+initial_velocity = 733.94
+initial_velocity_random = 0.51
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+damping = 300.0
+scale_amount = 0.3
+scale_amount_curve = SubResource( 2 )
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="." index="3"]
+scale = Vector2( 0.15, 0.15 )
+amount = 2
+lifetime = 2.0
+speed_scale = 3.0
+explosiveness = 1.0
+lifetime_randomness = 0.52
+fixed_fps = 45
+texture = ExtResource( 3 )
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector2( 1, -1 )
+spread = 0.0
+gravity = Vector2( 0, 200 )
+initial_velocity = 1200.0
+initial_velocity_random = 0.44
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+damping = 300.0
+scale_amount = 0.4
+scale_amount_curve = SubResource( 2 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="." index="4"]
+scale = Vector2( 0.15, 0.15 )
+amount = 5
+lifetime = 3.0
+speed_scale = 5.0
+explosiveness = 1.0
+lifetime_randomness = 1.0
+fixed_fps = 45
+texture = ExtResource( 3 )
+direction = Vector2( 100, 0 )
+spread = 16.51
+gravity = Vector2( 0, -100 )
+initial_velocity = 733.94
+initial_velocity_random = 0.51
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+damping = 300.0
+scale_amount = 0.15
+scale_amount_curve = SubResource( 2 )
+color = Color( 1, 0.780392, 0.780392, 1 )
+hue_variation = 0.65
+hue_variation_random = 1.0
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="." index="5"]
+material = SubResource( 3 )
+amount = 1
+lifetime = 0.15
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 0 )
+angle = 720.0
+angle_random = 1.0
+anim_speed = 1.0

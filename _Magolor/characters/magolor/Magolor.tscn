@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://characters/BaseChar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_Magolor/characters/magolor/MagolorSpriteFrames.tres" type="SpriteFrames" id=2]
@@ -7,6 +7,24 @@
 [ext_resource path="res://_Magolor/characters/magolor/states/EmptyState.gd" type="Script" id=5]
 [ext_resource path="res://_Magolor/characters/magolor/icons/mago action sprites1.png" type="Texture" id=6]
 [ext_resource path="res://_Magolor/characters/magolor/icons/mago action sprites2.png" type="Texture" id=7]
+[ext_resource path="res://_Magolor/characters/magolor/particles/HitEffect.tscn" type="PackedScene" id=8]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/KeyArt.png" type="Texture" id=9]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/Idle.png" type="Texture" id=10]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Damage1.wav" type="AudioStream" id=11]
+[ext_resource path="res://_Magolor/characters/magolor/particles/MagicEffect.tscn" type="PackedScene" id=12]
+[ext_resource path="res://_Magolor/characters/magolor/particles/HitEffectMini.tscn" type="PackedScene" id=13]
+[ext_resource path="res://_Magolor/characters/magolor/icons/Cuttler.png" type="Texture" id=14]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Cutter.wav" type="AudioStream" id=15]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Hit Cutter.wav" type="AudioStream" id=16]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/GrandHammer.tscn" type="PackedScene" id=17]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Charge Hammer.wav" type="AudioStream" id=18]
+[ext_resource path="res://_Magolor/characters/magolor/icons/MagoUppercut.png" type="Texture" id=19]
+[ext_resource path="res://_Magolor/characters/magolor/Cuttler.gd" type="Script" id=20]
+[ext_resource path="res://_Magolor/characters/magolor/etc/UIScene.tscn" type="PackedScene" id=21]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/MagicSphere.tscn" type="PackedScene" id=22]
+[ext_resource path="res://_Magolor/characters/magolor/icons/Black Hole.png" type="Texture" id=23]
+[ext_resource path="res://_Magolor/characters/magolor/etc/Blackhole UI.tscn" type="PackedScene" id=24]
+[ext_resource path="res://_Magolor/characters/magolor/etc/BlackHoleScript.gd" type="Script" id=25]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -67,60 +85,461 @@ func _on_hit_something(obj, hitbox):
 "
 
 [node name="Magolor" instance=ExtResource( 1 )]
+gravity = "0.4"
+ground_friction = "1.5"
+max_ground_speed = "10"
+max_air_speed = "10"
+max_fall_speed = "6.5"
+enable_extra_aesthetic_hitstop = true
+lose_one_air_option_in_neutral = false
+character_portrait = ExtResource( 9 )
+character_portrait2 = ExtResource( 10 )
+use_extra_color_1 = true
+extra_color_1 = Color( 0.94902, 0.729412, 0.211765, 1 )
+use_extra_color_2 = true
+extra_color_2 = Color( 0.180392, 0.294118, 0.596078, 1 )
 
 [node name="Sprite" parent="Flip" index="0"]
 material = SubResource( 1 )
 frames = ExtResource( 2 )
+animation = "Punch Upwards"
+frame = 6
 
-[node name="ExamplePunch" type="Node2D" parent="StateMachine" index="57"]
+[node name="Burst" parent="StateMachine" index="12"]
+ticks_per_frame = 3
+particle_scene = ExtResource( 12 )
+
+[node name="DefensiveBurst" parent="StateMachine" index="13"]
+ticks_per_frame = 3
+particle_scene = ExtResource( 12 )
+
+[node name="OffensiveBurst" parent="StateMachine" index="14"]
+ticks_per_frame = 3
+particle_scene = ExtResource( 12 )
+
+[node name="Fall" parent="StateMachine" index="18"]
+ticks_per_frame = 4
+refresh_loop = false
+
+[node name="Landing" parent="StateMachine" index="21"]
+ticks_per_frame = 3
+refresh_loop = false
+
+[node name="DashForward" parent="StateMachine" index="27"]
+ticks_per_frame = 4
+loop_animation = true
+refresh_loop = false
+spawn_particle_on_enter = false
+enter_sfx = null
+dash_speed = 7
+spawn_particle = false
+speed_limit = "20"
+
+[node name="DashBackward" parent="StateMachine" index="29"]
+ticks_per_frame = 3
+refresh_loop = false
+particle_scene = null
+spawn_particle_on_enter = false
+enter_sfx = null
+dash_speed = 4
+spawn_particle = false
+
+[node name="Jump" parent="StateMachine" index="32"]
+refresh_loop = false
+
+[node name="DoubleJump" parent="StateMachine" index="35"]
+sprite_anim_length = -1
+ticks_per_frame = 3
+absolute_loop = true
+refresh_loop = false
+
+[node name="Punch Forward" type="Node2D" parent="StateMachine" index="57"]
 script = ExtResource( 5 )
 apply_forces = true
 apply_fric = true
 apply_grav = true
+sprite_animation = "Punch"
 anim_length = 18
-enter_force_dir_x = "2"
-enter_force_speed = "4"
-title = "Example Punch"
+force_dir_x = "2"
+force_speed = "4"
+force_tick = 8
+enter_force_dir_x = "-2"
+enter_force_speed = "1"
+title = "Magofist"
 type = 1
 button_texture = ExtResource( 6 )
+air_type = 2
+uses_air_movement = true
+iasa_at = 12
+self_hit_cancellable = false
 self_interruptable = false
-interrupt_from_string = "Grounded"
-interrupt_into_string = "Grounded"
+interrupt_from_string = "Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
 hit_cancel_into_string = "GroundedAttack
-GroundedSpecial"
+GroundedSpecial
+Aerial
+AerialAttack
+AerialSpecial
+Special"
+interrupt_exceptions_string = "Punch Forward"
+hit_cancel_exceptions_string = "Punch Forward"
 
-[node name="Hitbox" type="Node2D" parent="StateMachine/ExamplePunch" index="0"]
+[node name="Hitbox" type="Node2D" parent="StateMachine/Punch Forward" index="0"]
 position = Vector2( -1, 0 )
 z_index = 1000
 script = ExtResource( 4 )
-x = 16
+x = 22
 y = -16
 width = 15
 height = 12
 damage = 100
 minimum_damage = 40
+hitstun_ticks = 18
+hitlag_ticks = 3
+victim_hitlag = 11
+damage_proration = 9001
+block_punishable = true
+plus_frames = 5
+screenshake_frames = 2
+hit_particle = ExtResource( 8 )
+hit_sound = ExtResource( 11 )
+dir_y = "-0.1"
+knockback = "5.0"
+launch_reversible = true
+start_tick = 8
+active_ticks = 2
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/Punch Forward" index="1"]
+position = Vector2( -1, 0 )
+z_index = 1000
+script = ExtResource( 4 )
+x = 22
+y = -16
+width = 11
+height = 8
+damage = 60
+minimum_damage = 20
 hitstun_ticks = 7
 hitlag_ticks = 3
 victim_hitlag = 7
 damage_proration = 9001
 block_punishable = true
 plus_frames = 5
+hit_particle = ExtResource( 13 )
 dir_y = "-0.1"
 knockback = "5.0"
 launch_reversible = true
-start_tick = 7
-active_ticks = 15
+start_tick = 10
+active_ticks = 2
 
-[node name="TempOrb" type="Node2D" parent="StateMachine" index="58"]
+[node name="Spawn Sphere" type="Node2D" parent="StateMachine" index="58"]
+script = ExtResource( 5 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Punch"
+anim_length = 18
+force_dir_x = "2"
+force_speed = "4"
+force_tick = 8
+enter_force_dir_x = "-2"
+enter_force_speed = "1"
+projectile_scene = ExtResource( 22 )
+projectile_tick = 8
+projectile_pos_x = 8
+projectile_match_facing = true
+title = "Magic Sphere"
+type = 2
+button_texture = ExtResource( 7 )
+air_type = 2
+uses_air_movement = true
+iasa_at = 12
+count_projectile_hits = false
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "GroundedAttack
+GroundedSpecial
+Aerial
+"
+
+[node name="Spawn Blackhole" type="Node2D" parent="StateMachine" index="59"]
+script = ExtResource( 25 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+sprite_animation = "Punch"
+anim_length = 18
+force_dir_x = "2"
+force_speed = "4"
+force_tick = 8
+enter_force_dir_x = "-2"
+enter_force_speed = "1"
+projectile_match_facing = true
+title = "Magic Sphere"
+type = 2
+data_ui_scene = ExtResource( 24 )
+button_texture = ExtResource( 23 )
+air_type = 2
+uses_air_movement = true
+iasa_at = 12
+count_projectile_hits = false
+self_hit_cancellable = false
+self_interruptable = false
+interrupt_from_string = "Grounded
+Aerial"
+interrupt_into_string = "Grounded
+Aerial"
+hit_cancel_into_string = "GroundedAttack
+GroundedSpecial
+Aerial
+"
+
+[node name="Punch Upwards" type="Node2D" parent="StateMachine" index="60"]
+script = ExtResource( 5 )
+apply_forces = true
+apply_fric = true
+apply_grav = true
+anim_length = 25
+ticks_per_frame = 2
+force_dir_x = "2"
+force_dir_y = "-2"
+force_speed = "3"
+force_tick = 10
+enter_force_dir_x = "2"
+enter_force_speed = "2"
+title = "Rising Fist"
+type = 1
+button_texture = ExtResource( 19 )
+air_type = 2
+uses_air_movement = true
+iasa_at = 16
+self_interruptable = false
+interrupt_from_string = "Grounded
+Aerial"
+interrupt_into_string = "Grounded"
+hit_cancel_into_string = "GroundedAttack
+GroundedSpecial
+Special
+AerialSpecial"
+interrupt_exceptions_string = "Punch Forward"
+hit_cancel_exceptions_string = "Punch Forward"
+
+[node name="Hitbox" type="Node2D" parent="StateMachine/Punch Upwards" index="0"]
+position = Vector2( -1, 0 )
+z_index = 1000
+script = ExtResource( 4 )
+x = 14
+y = -23
+width = 15
+height = 18
+damage = 100
+minimum_damage = 40
+hitstun_ticks = 15
+hitlag_ticks = 7
+victim_hitlag = 13
+damage_proration = 9001
+block_punishable = true
+plus_frames = 5
+screenshake_frames = 2
+hit_particle = ExtResource( 8 )
+hit_sound = ExtResource( 11 )
+dir_y = "-0.9"
+knockback = "6"
+launch_reversible = true
+grounded_hit_state = "HurtAerial"
+start_tick = 13
+active_ticks = 2
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/Punch Upwards" index="1"]
+position = Vector2( -1, 0 )
+z_index = 1000
+script = ExtResource( 4 )
+x = 19
+y = -37
+width = 11
+height = 8
+damage = 60
+minimum_damage = 20
+hitstun_ticks = 7
+hitlag_ticks = 3
+victim_hitlag = 7
+damage_proration = 9001
+block_punishable = true
+plus_frames = 5
+hit_particle = ExtResource( 13 )
+dir_y = "-0.9"
+knockback = "5.0"
+launch_reversible = true
+start_tick = 15
+active_ticks = 2
+
+[node name="Cuttler" type="Node2D" parent="StateMachine" index="61"]
+script = ExtResource( 20 )
+__meta__ = {
+"_editor_description_": ""
+}
+apply_forces = true
+apply_fric = true
+apply_grav = true
+apply_custom_x_fric = true
+custom_x_fric = "0.4"
+custom_y_fric = "3"
+apply_custom_limits = true
+custom_max_air_speed = "6"
+custom_max_ground_speed = "6"
+sprite_animation = "Magic Cutter"
+anim_length = 20
+sprite_anim_length = 20
+ticks_per_frame = 2
+animation_loop_start = -1
+absolute_loop = true
+refresh_loop = false
+enter_force_dir_x = "0"
+timed_particle_scene = ExtResource( 12 )
+timed_spawn_particle_tick = 8
+sfx = ExtResource( 15 )
+sfx_tick = 8
+sfx_volume = 2.0
+title = "Magic Cutter"
+type = 2
+data_ui_scene = ExtResource( 21 )
+button_texture = ExtResource( 14 )
+air_type = 1
+uses_air_movement = true
+iasa_at = 20
+iasa_on_hit = 20
+interrupt_frames = [ 20.0 ]
+dynamic_iasa = false
+busy_interrupt_type = 2
+self_interruptable = false
+interrupt_from_string = "Aerial
+Grounded"
+hit_cancel_into_string = "Aerial
+Grounded"
+interrupt_exceptions_string = "Cuttler"
+hit_cancel_exceptions_string = "Cuttler"
+
+[node name="Hitbox2" type="Node2D" parent="StateMachine/Cuttler" index="0"]
+position = Vector2( -1, 0 )
+z_index = 1000
+script = ExtResource( 4 )
+y = -16
+width = 28
+height = 15
+damage = 30
+minimum_damage = 20
+hitstun_ticks = 8
+hitlag_ticks = 2
+victim_hitlag = 2
+combo_victim_hitlag = 7
+damage_proration = 9001
+scale_combo = false
+cancellable = false
+block_punishable = true
+plus_frames = 5
+hit_particle = ExtResource( 13 )
+hit_sound = ExtResource( 16 )
+dir_y = "-0.1"
+knockback = "5.0"
+launch_reversible = true
+vacuum = true
+pushback_x = "-1.0"
+start_tick = 10
+active_ticks = 6
+looping = true
+loop_active_ticks = 1
+loop_inactive_ticks = 1
+
+[node name="Hitbox3" type="Node2D" parent="StateMachine/Cuttler" index="1"]
+position = Vector2( -1, 0 )
+z_index = 1000
+script = ExtResource( 4 )
+y = -16
+width = 15
+height = 28
+damage = 30
+minimum_damage = 20
+hitstun_ticks = 8
+hitlag_ticks = 2
+victim_hitlag = 2
+combo_victim_hitlag = 7
+damage_proration = 9001
+scale_combo = false
+cancellable = false
+block_punishable = true
+plus_frames = 5
+hit_particle = ExtResource( 13 )
+hit_sound = ExtResource( 16 )
+dir_y = "-0.1"
+knockback = "5.0"
+launch_reversible = true
+vacuum = true
+pushback_x = "-1"
+start_tick = 10
+active_ticks = 6
+looping = true
+loop_active_ticks = 1
+loop_inactive_ticks = 1
+
+[node name="Hitbox4" type="Node2D" parent="StateMachine/Cuttler" index="2"]
+position = Vector2( -1, 0 )
+z_index = 1000
+script = ExtResource( 4 )
+y = -16
+width = 36
+height = 36
+damage = 50
+minimum_damage = 20
+hitstun_ticks = 25
+hitlag_ticks = 12
+victim_hitlag = 15
+damage_proration = 9001
+combo_scaling_amount = 3
+block_punishable = true
+plus_frames = 5
+group = 1
+hit_particle = ExtResource( 8 )
+hit_sound = ExtResource( 16 )
+hit_sound_volume = 9.0
+dir_y = "-0.4"
+knockback = "5"
+send_away_from_center = true
+grounded_hit_state = "HurtAerial"
+start_tick = 16
+active_ticks = 2
+loop_active_ticks = 1
+loop_inactive_ticks = 1
+
+[node name="TempOrb" type="Node2D" parent="StateMachine" index="62"]
 script = SubResource( 2 )
 apply_forces = true
 apply_fric = true
 apply_grav = true
+sprite_animation = "Raise"
+anim_length = 92
+sfx = ExtResource( 18 )
+sfx_tick = 5
+sfx_volume = 5.0
+projectile_scene = ExtResource( 17 )
+projectile_pos_x = 10
+projectile_pos_y = -65
+projectile_match_facing = true
 type = 2
 button_texture = ExtResource( 7 )
 air_type = 2
 uses_air_movement = true
 land_cancel = true
+iasa_at = 100
+iasa_on_hit = 100
 interrupt_from_string = "Grounded
 Aerial"
 interrupt_into_string = "Grounded
@@ -129,3 +548,6 @@ hit_cancel_into_string = "GroundedAttack
 GroundedSpecial
 AerialAttack
 AerialSpecial"
+super_freeze_ticks_ = 30
+super_effect_ = true
+force_super_effect = true

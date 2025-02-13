@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Charge Hammer.mp3-590ca9ac3009fb30eb99b8f222b8e96d.mp3str"
+
+[deps]
+
+source_file="res://_Magolor/characters/magolor/sound/Charge Hammer.mp3"
+dest_files=[ "res://.import/Charge Hammer.mp3-590ca9ac3009fb30eb99b8f222b8e96d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

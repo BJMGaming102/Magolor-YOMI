@@ -1,0 +1,178 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=2]
+[ext_resource path="res://_Magolor/characters/magolor/particles/particleeffects/Vortex.png" type="Texture" id=3]
+[ext_resource path="res://_Magolor/characters/magolor/particles/particleeffects/Vortex2.png" type="Texture" id=4]
+[ext_resource path="res://_Magolor/characters/magolor/particles/particleeffects/Vortex3.png" type="Texture" id=5]
+[ext_resource path="res://_Magolor/characters/magolor/particles/particleeffects/Vortex5.png" type="Texture" id=6]
+[ext_resource path="res://_Magolor/characters/magolor/particles/particleeffects/Vortex 4.png" type="Texture" id=7]
+[ext_resource path="res://fx/big_filled_circle.png" type="Texture" id=8]
+[ext_resource path="res://_Magolor/characters/magolor/particles/particleeffects/Vortex6.png" type="Texture" id=9]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=2]
+max_value = 0.1
+_data = [ Vector2( 0, 0.1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=6]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.340782, 0.748603 )
+colors = PoolColorArray( 0.329412, 0.329412, 0.329412, 0, 1, 1, 1, 0.0470588, 1, 1, 1, 0 )
+
+[sub_resource type="Gradient" id=11]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.340782, 0.748603, 1 )
+colors = PoolColorArray( 0.329412, 0.329412, 0.329412, 0, 1, 1, 1, 0.521569, 1, 1, 1, 0, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=10]
+blend_mode = 2
+
+[sub_resource type="Gradient" id=7]
+interpolation_mode = 2
+offsets = PoolRealArray( 0, 0.340782, 0.748603, 1 )
+colors = PoolColorArray( 0.329412, 0.329412, 0.329412, 0, 1, 1, 1, 0.0705882, 1, 1, 1, 0, 1, 1, 1, 0 )
+
+[sub_resource type="CanvasItemMaterial" id=8]
+blend_mode = 2
+
+[sub_resource type="Gradient" id=9]
+interpolation_mode = 2
+colors = PoolColorArray( 0.329412, 0.329412, 0.329412, 0.0666667, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.709091 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=13]
+interpolation_mode = 2
+offsets = PoolRealArray( 0.0167598, 0.0782123 )
+colors = PoolColorArray( 0.0167598, 0.0167598, 0.0167598, 1, 1, 1, 1, 0 )
+
+[node name="ParticleEffect" instance=ExtResource( 1 )]
+material = SubResource( 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="1"]
+visible = false
+amount = 200
+lifetime_randomness = 1.0
+texture = ExtResource( 8 )
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2( 0, 0 )
+orbit_velocity = -0.1
+orbit_velocity_random = 1.0
+radial_accel = -300.0
+radial_accel_random = 0.3
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="2"]
+visible = false
+explosiveness = 1.0
+texture = ExtResource( 3 )
+gravity = Vector2( 0, 0 )
+angular_velocity = -317.06
+angular_velocity_random = 0.2
+angle = 720.0
+angle_random = 1.0
+scale_amount = 7.0
+color = Color( 1, 1, 1, 0.168627 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="." index="3"]
+visible = false
+texture = ExtResource( 4 )
+gravity = Vector2( 0, 0 )
+angular_velocity = -462.38
+angular_velocity_random = 0.2
+angle = 720.0
+angle_random = 1.0
+scale_amount = 7.0
+scale_amount_curve = SubResource( 4 )
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="." index="4"]
+amount = 20
+lifetime = 0.3
+texture = ExtResource( 5 )
+gravity = Vector2( 0, 0 )
+angle = 720.0
+angle_random = 1.0
+scale_amount = 18.34
+scale_amount_curve = SubResource( 5 )
+color_ramp = SubResource( 6 )
+
+[node name="CPUParticles2D6" type="CPUParticles2D" parent="." index="5"]
+z_index = -20
+amount = 40
+lifetime = 0.3
+texture = ExtResource( 6 )
+gravity = Vector2( 0, 0 )
+angular_velocity = -237.8
+angle = 720.0
+angle_random = 1.0
+scale_amount = 4.0
+scale_amount_curve = SubResource( 5 )
+color = Color( 0, 0, 0, 1 )
+color_ramp = SubResource( 11 )
+
+[node name="CPUParticles2D7" type="CPUParticles2D" parent="." index="6"]
+material = SubResource( 10 )
+amount = 20
+texture = ExtResource( 9 )
+gravity = Vector2( 0, 0 )
+angular_velocity = -237.8
+angle = 720.0
+angle_random = 1.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 5 )
+color_ramp = SubResource( 7 )
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="." index="7"]
+material = SubResource( 8 )
+z_index = 10
+amount = 60
+texture = ExtResource( 7 )
+gravity = Vector2( 0, 0 )
+angular_velocity = -422.75
+angle = 720.0
+angle_random = 1.0
+scale_amount = 7.0
+scale_amount_curve = SubResource( 5 )
+color_ramp = SubResource( 9 )
+
+[node name="CPUParticles2D8" type="CPUParticles2D" parent="." index="8"]
+material = SubResource( 8 )
+z_index = 30
+amount = 128
+texture = ExtResource( 7 )
+gravity = Vector2( 0, 0 )
+angular_velocity = -422.75
+angle = 720.0
+angle_random = 1.0
+scale_amount = 3.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 12 )
+color_ramp = SubResource( 13 )
