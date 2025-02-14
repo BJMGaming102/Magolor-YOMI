@@ -11,6 +11,7 @@ limit_range_degrees = 230.0
 limit_center_degrees = 90.0
 limit_symmetrical = false
 default_value = Vector2( 0, -1 )
+snap_radius = 0.5
 
 [node name="PlotPanel" parent="." index="0"]
 modulate = Color( 0.898039, 0, 1, 1 )
@@ -22,7 +23,6 @@ modulate = Color( 1, 0.556863, 0.952941, 1 )
 
 [node name="Label" parent="." index="2"]
 modulate = Color( 0.772549, 0.470588, 1, 1 )
-text = "Displace"
 
 [node name="XLabel" parent="." index="3"]
 modulate = Color( 1, 0.556863, 0.952941, 1 )

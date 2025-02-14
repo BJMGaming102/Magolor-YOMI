@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=341 format=2]
+[gd_resource type="SpriteFrames" load_steps=343 format=2]
 
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnim1.png" type="Texture" id=1]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimFloatBack5.png" type="Texture" id=2]
@@ -7,15 +7,15 @@
 [ext_resource path="res://characters/stickman/sprites/stickman7.png" type="Texture" id=5]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnim5.png" type="Texture" id=6]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnim2.png" type="Texture" id=7]
-[ext_resource path="res://characters/stickman/sprites/stickman10.png" type="Texture" id=8]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimHurt7.png" type="Texture" id=8]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnim4.png" type="Texture" id=9]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimLand3.png" type="Texture" id=10]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnim3.png" type="Texture" id=11]
-[ext_resource path="res://characters/stickman/sprites/stickman9.png" type="Texture" id=12]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimHurt2.png" type="Texture" id=12]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimPunch2.png" type="Texture" id=13]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimPunch3.png" type="Texture" id=14]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagoAnimBurst8.png" type="Texture" id=15]
-[ext_resource path="res://characters/stickman/sprites/stickman17.png" type="Texture" id=16]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimHurt5.png" type="Texture" id=16]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimPunch9.png" type="Texture" id=17]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimPunch6.png" type="Texture" id=18]
 [ext_resource path="res://characters/stickman/sprites/stickman5.png" type="Texture" id=19]
@@ -26,15 +26,15 @@
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimPunch8.png" type="Texture" id=24]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimPunch1.png" type="Texture" id=25]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimPunch10.png" type="Texture" id=26]
-[ext_resource path="res://characters/stickman/sprites/stickman18.png" type="Texture" id=27]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimHurt1.png" type="Texture" id=27]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimPunch4.png" type="Texture" id=28]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimPunch11.png" type="Texture" id=29]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimLand1.png" type="Texture" id=30]
-[ext_resource path="res://characters/stickman/sprites/stickman30.png" type="Texture" id=31]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimHurt4.png" type="Texture" id=31]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimLand2.png" type="Texture" id=32]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimLand4.png" type="Texture" id=33]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimLand5.png" type="Texture" id=34]
-[ext_resource path="res://characters/stickman/sprites/stickman37.png" type="Texture" id=35]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimGetup.png" type="Texture" id=35]
 [ext_resource path="res://characters/stickman/sprites/stickman38.png" type="Texture" id=36]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimLand6.png" type="Texture" id=37]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimLand7.png" type="Texture" id=38]
@@ -78,7 +78,7 @@
 [ext_resource path="res://_Magolor/characters/magolor/sprite/GrandHammerSprites20.png" type="Texture" id=76]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/GrandHammerSprites7.png" type="Texture" id=77]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/GrandHammerSprites15.png" type="Texture" id=78]
-[ext_resource path="res://characters/stickman/sprites/wall_slam.png" type="Texture" id=79]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimLaughing3.png" type="Texture" id=79]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/GrandHammerSprites19.png" type="Texture" id=80]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/GrandHammerSprites1.png" type="Texture" id=81]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/GrandHammerSprites21.png" type="Texture" id=82]
@@ -340,6 +340,8 @@
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimSpin3.png" type="Texture" id=338]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimSpin5.png" type="Texture" id=339]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimSpin1.png" type="Texture" id=340]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimLaughing2.png" type="Texture" id=341]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimLaughing1.png" type="Texture" id=342]
 
 [resource]
 animations = [ {
@@ -383,6 +385,11 @@ animations = [ {
 "name": "Getup",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 342 ), ExtResource( 341 ), ExtResource( 79 ) ],
+"loop": true,
+"name": "Giggle",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 21 ), ExtResource( 21 ), ExtResource( 21 ), ExtResource( 21 ), ExtResource( 63 ), ExtResource( 63 ), ExtResource( 63 ), ExtResource( 63 ), ExtResource( 63 ), ExtResource( 63 ), ExtResource( 63 ), ExtResource( 63 ), ExtResource( 63 ) ],
 "loop": true,
 "name": "Grab",
@@ -398,12 +405,12 @@ animations = [ {
 "name": "Grand Hammer",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "HurtAerial",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "HurtGroundedHigh",
 "speed": 5.0
@@ -413,7 +420,7 @@ animations = [ {
 "name": "HurtGroundedLow",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "HurtGroundedMid",
 "speed": 5.0
@@ -498,7 +505,7 @@ animations = [ {
 "name": "Wait",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 79 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "WallSlam",
 "speed": 5.0

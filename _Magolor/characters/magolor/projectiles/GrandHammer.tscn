@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_Magolor/characters/magolor/MagolorSpriteFrames.tres" type="SpriteFrames" id=2]
@@ -6,6 +6,24 @@
 [ext_resource path="res://_Magolor/characters/magolor/projectiles/HammerEffect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://_Magolor/characters/magolor/sound/Charge Hammer.wav" type="AudioStream" id=5]
 [ext_resource path="res://_Magolor/characters/magolor/sound/Smash Effect.wav" type="AudioStream" id=6]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/GrandHammer.gd" type="Script" id=7]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/GrandHammerPoof.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/BaseChar.gdshader" type="Shader" id=9]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 9 )
+shader_param/use_extra_color_1 = false
+shader_param/use_extra_color_2 = false
+shader_param/extra_replace_color_1 = Color( 1, 0, 1, 1 )
+shader_param/extra_replace_color_2 = Color( 1, 0, 1, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/extra_color_1 = Color( 1, 1, 1, 1 )
+shader_param/extra_color_2 = Color( 1, 1, 1, 1 )
+shader_param/max_color_distance = 0.01
+shader_param/super_dim = false
+shader_param/use_outline = false
+shader_param/outline_color = Color( 0, 0, 0, 1 )
 
 [node name="BaseProjectile" instance=ExtResource( 1 )]
 movable = false
@@ -17,7 +35,17 @@ position = Vector2( 20, -63 )
 frames = ExtResource( 2 )
 animation = "Grand Hammer"
 
+[node name="Poof" parent="Flip/Particles" index="0" instance=ExtResource( 8 )]
+unique_name_in_owner = true
+material = SubResource( 1 )
+free = false
+start_enabled = false
+
 [node name="Default" parent="StateMachine" index="0"]
+script = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
 sprite_animation = "Grand Hammer"
 anim_length = 94
 ticks_per_frame = 2
