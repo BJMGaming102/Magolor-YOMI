@@ -91,6 +91,7 @@ scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="2"]
+visible = false
 explosiveness = 1.0
 texture = ExtResource( 3 )
 gravity = Vector2( 0, 0 )
