@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://fx/ParticleEffect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_Magolor/characters/magolor/particles/particleeffects/Star.png" type="Texture" id=2]
@@ -39,6 +39,9 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Curve" id=12]
 _data = [ Vector2( 0, 0.563636 ), 0.0, 0.0, 0, 0, Vector2( 0.90099, 0.994811 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=13]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0.286275, 0.286275, 1 )
 
 [sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 0.259688 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -108,7 +111,7 @@ angle_random = 1.0
 scale_amount = 0.03
 scale_amount_random = 0.03
 scale_amount_curve = SubResource( 12 )
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 13 )
 hue_variation_random = 1.0
 hue_variation_curve = SubResource( 5 )
 

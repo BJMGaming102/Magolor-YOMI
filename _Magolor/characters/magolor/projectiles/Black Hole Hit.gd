@@ -2,6 +2,7 @@ extends DefaultFireball
 
 var didhit = 0
 var once = 1
+var framecount = 0
 func _enter():	
 	
 	host.screen_bump(Vector2(), 0.4, 0.4)
@@ -11,37 +12,17 @@ func _enter():
 	
 func _on_hit_something(o, h):
 	._on_hit_something(o, h)
-	apply_enter_force()
-	if once == 1:
-		host.play_sound("Success")
-		once = 0
-		host.creator.change_state("Laughing")
-	didhit = 1
+	host.change_state("Black Hole Rise")
 	
 func _tick():
 	host.screen_bump(Vector2(), 0.4, 0.4)
-	if didhit == 1:
-		if current_tick < 119:
-			host.creator.opponent.sprite.visible = false
-			host.creator.opponent.set_pos(host.get_pos().x, host.get_pos().y)
-	
-	
+	if host.creator.current_state() is CharacterHurtState:
+		host.change_state("Fail")
+	if host.creator.current_state().name == "Laughing":
+		host.change_state("Fail")
+		
 
 
-func _frame_100():
-	$"%Charge".stop_emitting()
-	$"%BlackHole".stop_emitting()
-	
-func _frame_120():
-	if didhit == 1:
-		host.creator.opponent.sprite.visible = true
-		host.stop_sound("Success")
-		host.creator.change_state("Wait")
-	host.play_sound("Poof")
-	host.stop_sound("Inhale")
-	
-	
-	.fizzle()
 	
 func fizzle():
 	.fizzle()

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=355 format=2]
+[gd_resource type="SpriteFrames" load_steps=435 format=2]
 
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnim1.png" type="Texture" id=1]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimFloatBack5.png" type="Texture" id=2]
@@ -354,18 +354,103 @@
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimSurge8.png" type="Texture" id=352]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimSurge4.png" type="Texture" id=353]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimSurge3.png" type="Texture" id=354]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath52.png" type="Texture" id=355]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath3.png" type="Texture" id=356]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath8.png" type="Texture" id=357]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath2.png" type="Texture" id=358]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath44.png" type="Texture" id=359]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath35.png" type="Texture" id=360]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath40.png" type="Texture" id=361]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath17.png" type="Texture" id=362]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath30.png" type="Texture" id=363]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath37.png" type="Texture" id=364]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath41.png" type="Texture" id=365]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath61.png" type="Texture" id=366]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath16.png" type="Texture" id=367]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath29.png" type="Texture" id=368]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath33.png" type="Texture" id=369]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath24.png" type="Texture" id=370]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath28.png" type="Texture" id=371]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath19.png" type="Texture" id=372]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath32.png" type="Texture" id=373]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath14.png" type="Texture" id=374]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath34.png" type="Texture" id=375]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath36.png" type="Texture" id=376]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath11.png" type="Texture" id=377]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath23.png" type="Texture" id=378]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath46.png" type="Texture" id=379]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath9.png" type="Texture" id=380]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath48.png" type="Texture" id=381]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath50.png" type="Texture" id=382]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath7.png" type="Texture" id=383]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath25.png" type="Texture" id=384]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath27.png" type="Texture" id=385]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath39.png" type="Texture" id=386]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath21.png" type="Texture" id=387]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath20.png" type="Texture" id=388]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath4.png" type="Texture" id=389]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath47.png" type="Texture" id=390]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath51.png" type="Texture" id=391]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath56.png" type="Texture" id=392]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath57.png" type="Texture" id=393]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath58.png" type="Texture" id=394]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath13.png" type="Texture" id=395]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath1.png" type="Texture" id=396]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath18.png" type="Texture" id=397]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath62.png" type="Texture" id=398]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath49.png" type="Texture" id=399]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath54.png" type="Texture" id=400]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath42.png" type="Texture" id=401]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath63.png" type="Texture" id=402]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath55.png" type="Texture" id=403]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath15.png" type="Texture" id=404]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath45.png" type="Texture" id=405]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath64.png" type="Texture" id=406]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath5.png" type="Texture" id=407]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath12.png" type="Texture" id=408]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath10.png" type="Texture" id=409]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath22.png" type="Texture" id=410]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath26.png" type="Texture" id=411]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath6.png" type="Texture" id=412]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath31.png" type="Texture" id=413]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath38.png" type="Texture" id=414]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath43.png" type="Texture" id=415]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath53.png" type="Texture" id=416]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath59.png" type="Texture" id=417]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath60.png" type="Texture" id=418]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath65.png" type="Texture" id=419]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath66.png" type="Texture" id=420]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath76.png" type="Texture" id=421]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath67.png" type="Texture" id=422]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath75.png" type="Texture" id=423]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath73.png" type="Texture" id=424]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath71.png" type="Texture" id=425]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath79.png" type="Texture" id=426]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath74.png" type="Texture" id=427]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath77.png" type="Texture" id=428]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath72.png" type="Texture" id=429]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath80.png" type="Texture" id=430]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath69.png" type="Texture" id=431]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath68.png" type="Texture" id=432]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath78.png" type="Texture" id=433]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath70.png" type="Texture" id=434]
 
 [resource]
 animations = [ {
 "frames": [ ExtResource( 285 ), ExtResource( 267 ), ExtResource( 279 ), ExtResource( 261 ), ExtResource( 254 ), ExtResource( 291 ), ExtResource( 256 ), ExtResource( 288 ), ExtResource( 282 ), ExtResource( 263 ), ExtResource( 276 ), ExtResource( 262 ), ExtResource( 280 ), ExtResource( 283 ), ExtResource( 268 ), ExtResource( 269 ), ExtResource( 255 ), ExtResource( 264 ), ExtResource( 284 ), ExtResource( 265 ), ExtResource( 274 ), ExtResource( 281 ), ExtResource( 287 ), ExtResource( 266 ), ExtResource( 270 ), ExtResource( 271 ), ExtResource( 272 ), ExtResource( 258 ), ExtResource( 286 ), ExtResource( 289 ), ExtResource( 277 ), ExtResource( 259 ), ExtResource( 273 ), ExtResource( 290 ), ExtResource( 260 ), ExtResource( 275 ), ExtResource( 292 ), ExtResource( 293 ), ExtResource( 257 ), ExtResource( 278 ) ],
 "loop": true,
 "name": "Black Hole",
+"speed": 60.0
+}, {
+"frames": [ ExtResource( 396 ), ExtResource( 358 ), ExtResource( 356 ), ExtResource( 389 ), ExtResource( 407 ), ExtResource( 412 ), ExtResource( 383 ), ExtResource( 357 ), ExtResource( 380 ), ExtResource( 409 ), ExtResource( 377 ), ExtResource( 408 ), ExtResource( 395 ), ExtResource( 374 ), ExtResource( 404 ), ExtResource( 367 ), ExtResource( 362 ), ExtResource( 397 ), ExtResource( 372 ), ExtResource( 388 ), ExtResource( 387 ), ExtResource( 410 ), ExtResource( 378 ), ExtResource( 370 ), ExtResource( 384 ), ExtResource( 411 ), ExtResource( 385 ), ExtResource( 371 ), ExtResource( 368 ), ExtResource( 363 ), ExtResource( 413 ), ExtResource( 373 ), ExtResource( 369 ), ExtResource( 375 ), ExtResource( 360 ), ExtResource( 376 ), ExtResource( 364 ), ExtResource( 414 ), ExtResource( 386 ), ExtResource( 361 ), ExtResource( 365 ), ExtResource( 401 ), ExtResource( 415 ), ExtResource( 359 ), ExtResource( 405 ), ExtResource( 379 ), ExtResource( 390 ), ExtResource( 381 ), ExtResource( 399 ), ExtResource( 382 ), ExtResource( 391 ), ExtResource( 355 ), ExtResource( 416 ), ExtResource( 400 ), ExtResource( 403 ), ExtResource( 392 ), ExtResource( 393 ), ExtResource( 394 ), ExtResource( 417 ), ExtResource( 418 ), ExtResource( 366 ), ExtResource( 398 ), ExtResource( 402 ), ExtResource( 406 ), ExtResource( 419 ), ExtResource( 420 ), ExtResource( 422 ), ExtResource( 432 ), ExtResource( 431 ), ExtResource( 434 ), ExtResource( 425 ), ExtResource( 429 ), ExtResource( 424 ), ExtResource( 427 ), ExtResource( 423 ), ExtResource( 421 ), ExtResource( 428 ), ExtResource( 433 ), ExtResource( 426 ), ExtResource( 430 ) ],
+"loop": true,
+"name": "Black Hole Death",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 307 ), ExtResource( 332 ), ExtResource( 311 ), ExtResource( 312 ), ExtResource( 317 ), ExtResource( 314 ), ExtResource( 325 ), ExtResource( 309 ), ExtResource( 322 ), ExtResource( 306 ), ExtResource( 298 ), ExtResource( 316 ), ExtResource( 328 ), ExtResource( 323 ), ExtResource( 326 ), ExtResource( 324 ), ExtResource( 301 ), ExtResource( 327 ), ExtResource( 329 ), ExtResource( 305 ), ExtResource( 330 ), ExtResource( 319 ), ExtResource( 303 ), ExtResource( 313 ), ExtResource( 308 ), ExtResource( 331 ), ExtResource( 333 ), ExtResource( 315 ), ExtResource( 297 ), ExtResource( 296 ), ExtResource( 321 ), ExtResource( 302 ), ExtResource( 294 ), ExtResource( 320 ), ExtResource( 300 ), ExtResource( 295 ), ExtResource( 318 ), ExtResource( 299 ), ExtResource( 304 ), ExtResource( 310 ) ],
 "loop": true,
 "name": "Black Hole Squish",
-"speed": 5.0
+"speed": 60.0
 }, {
 "frames": [ ExtResource( 46 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 43 ), ExtResource( 15 ), ExtResource( 41 ), ExtResource( 42 ) ],
 "loop": true,

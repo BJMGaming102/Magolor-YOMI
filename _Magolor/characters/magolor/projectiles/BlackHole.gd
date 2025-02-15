@@ -12,4 +12,8 @@ func _frame_10():
 	
 
 func _frame_60():
-	host.change_state("Black Hole")
+	host.change_state("Black Hole Idle")
+	
+func _tick():
+	if host.creator.current_state() is CharacterHurtState:
+		host.change_state("Fail")
