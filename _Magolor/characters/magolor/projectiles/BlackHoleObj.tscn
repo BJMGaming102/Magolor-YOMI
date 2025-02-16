@@ -83,7 +83,9 @@ shader_param/outline_color = Color( 0, 0, 0, 1 )
 
 [node name="BaseProjectile" instance=ExtResource( 1 )]
 scale = Vector2( 0.25, 0.25 )
-air_friction = "0.4"
+gravity = "0.05"
+air_friction = "0"
+max_fall_speed = "1"
 has_projectile_parry_window = false
 deletes_other_projectiles = false
 movable = false
@@ -175,6 +177,7 @@ script = ExtResource( 5 )
 __meta__ = {
 "_editor_description_": ""
 }
+apply_custom_grav = true
 fallback_state = "Default"
 sprite_animation = "Black Hole Squish"
 anim_length = 40
@@ -182,11 +185,8 @@ sprite_anim_length = 40
 loop_animation = true
 refresh_loop = false
 endless = true
-enter_force_dir_y = "-1"
-enter_force_speed = "0.16"
 timed_spawn_particle_tick = 0
 move_x = 0
-move_y = -5
 num_hits = 100
 fizzle_on_ground = false
 fizzle_on_walls = false
@@ -194,9 +194,8 @@ fizzle_on_walls = false
 [node name="Hitbox" type="Node2D" parent="StateMachine/Black Hole Idle" index="0"]
 z_index = 1000
 script = ExtResource( 13 )
-width = 50
+width = 25
 height = 50
-can_draw = false
 damage = 3
 damage_in_combo = 1
 minimum_damage = 1
@@ -228,6 +227,18 @@ looping = true
 loop_active_ticks = 3
 loop_inactive_ticks = 1
 
+[node name="Detection1" type="Node2D" parent="StateMachine/Black Hole Idle" index="1"]
+z_index = 1000
+script = ExtResource( 13 )
+width = 600
+height = 600
+hitbox_type = 6
+start_tick = 1
+always_on = true
+looping = true
+loop_active_ticks = 1
+loop_inactive_ticks = 1
+
 [node name="Black Hole Rise" type="Node2D" parent="StateMachine" index="2"]
 script = ExtResource( 19 )
 __meta__ = {
@@ -236,7 +247,7 @@ __meta__ = {
 apply_forces = true
 fallback_state = "Default"
 sprite_animation = "Black Hole Death"
-anim_length = 80
+anim_length = 81
 sprite_anim_length = 80
 refresh_loop = false
 enter_force_dir_y = "-1"
@@ -299,12 +310,12 @@ combo_hitstun_ticks = 30
 hitlag_ticks = 0
 victim_hitlag = 40
 combo_victim_hitlag = 30
+priority = 1
 screenshake_amount = 10
 screenshake_frames = 10
 hit_particle = ExtResource( 11 )
 replace_hit_particle = true
 hit_sound = ExtResource( 14 )
-hit_sound_volume = -9.0
 dir_x = "0"
 dir_y = "1.0"
 knockback = "10"
