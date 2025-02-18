@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://theme.tres" type="Theme" id=1]
+[ext_resource path="res://_Magolor/characters/magolor/icons/Disabled Bomb.png" type="Texture" id=2]
+[ext_resource path="res://_Magolor/characters/magolor/icons/Magic Bomb Outlinle.png" type="Texture" id=3]
+[ext_resource path="res://_Magolor/characters/magolor/icons/Unselectable Bomb.png" type="Texture" id=4]
+[ext_resource path="res://_Magolor/characters/magolor/icons/Enabled Bomb.png" type="Texture" id=5]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/UI Slider Bomb.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/ActionSelector/ActionUIData/ActionUIDataCheckButton.gd" type="Script" id=8]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/MagicBombUI.gd" type="Script" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="ActionUIData" type="VBoxContainer"]
+margin_right = 107.0
+margin_bottom = 52.0
+mouse_filter = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Spread" parent="." instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 107.0
+margin_bottom = 34.0
+hint_tooltip = "Changes the horizontal velocity when spawned."
+size_flags_horizontal = 5
+size_flags_vertical = 5
+
+[node name="CheckButton" type="CheckButton" parent="."]
+margin_top = 35.0
+margin_right = 107.0
+margin_bottom = 52.0
+hint_tooltip = "Requires 1 Super; 
+Spawn 3 bombs, using spread to fan them out."
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_colors/font_color_disabled = Color( 0.133333, 0.133333, 0.133333, 1 )
+custom_colors/font_color = Color( 0.545098, 0, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.85098, 0.541176, 1, 1 )
+custom_icons/off = ExtResource( 2 )
+custom_icons/on = ExtResource( 5 )
+custom_icons/off_disabled = ExtResource( 4 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "Magic Bomb+"
+icon = ExtResource( 3 )
+align = 1
+script = ExtResource( 8 )
+__meta__ = {
+"_editor_description_": ""
+}

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=435 format=2]
+[gd_resource type="SpriteFrames" load_steps=436 format=2]
 
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnim1.png" type="Texture" id=1]
 [ext_resource path="res://_Magolor/characters/magolor/sprite/MagolorAnimFloatBack5.png" type="Texture" id=2]
@@ -434,6 +434,7 @@
 [ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath68.png" type="Texture" id=432]
 [ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath78.png" type="Texture" id=433]
 [ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole/BlackHoleDeath70.png" type="Texture" id=434]
+[ext_resource path="res://_Magolor/characters/magolor/sprite/Magic Bomb Small.png" type="Texture" id=435]
 
 [resource]
 animations = [ {
@@ -545,6 +546,11 @@ animations = [ {
 "frames": [ ExtResource( 30 ), ExtResource( 32 ), ExtResource( 10 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 37 ), ExtResource( 38 ) ],
 "loop": true,
 "name": "Landing",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 435 ) ],
+"loop": true,
+"name": "Magic Bomb Small",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 66 ), ExtResource( 65 ), ExtResource( 67 ), ExtResource( 46 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 43 ), ExtResource( 15 ), ExtResource( 41 ), ExtResource( 42 ) ],

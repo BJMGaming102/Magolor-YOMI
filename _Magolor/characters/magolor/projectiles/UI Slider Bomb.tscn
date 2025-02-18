@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://ui/HorizSlider/HorizSlider.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_Magolor/characters/magolor/projectiles/StyleBomb.tres" type="StyleBox" id=2]
+[ext_resource path="res://_Magolor/characters/magolor/icons/Magic Bomb Slider.png" type="Texture" id=3]
+[ext_resource path="res://_Magolor/characters/magolor/icons/Magic Bomb Slider Unfocus.png" type="Texture" id=4]
+[ext_resource path="res://fx/four_point_star.png" type="Texture" id=5]
+
+[sub_resource type="CanvasItemMaterial" id=4]
+
+[sub_resource type="StyleBoxLine" id=1]
+color = Color( 0, 0, 0, 0.588235 )
+thickness = 2
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.524752, 0.348172 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[node name="HorizSlider" instance=ExtResource( 1 )]
+min_value = 2
+max_value = 15
+
+[node name="Label" parent="." index="0"]
+custom_colors/font_color = Color( 0.835294, 0.631373, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+
+[node name="Direction" parent="." index="1"]
+material = SubResource( 4 )
+margin_bottom = 34.0
+custom_icons/grabber_highlight = ExtResource( 3 )
+custom_icons/grabber = ExtResource( 4 )
+custom_styles/slider = ExtResource( 2 )
+custom_styles/grabber_area_highlight = SubResource( 1 )
+custom_styles/grabber_area = ExtResource( 2 )
+min_value = 0.0
+
+[node name="ValueLabel" parent="." index="2"]
+visible = false
+margin_top = 35.0
+margin_bottom = 46.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="3"]
+position = Vector2( 53, 25 )
+z_index = -10
+amount = 2
+lifetime = 0.3
+draw_order = 1
+texture = ExtResource( 5 )
+emission_shape = 2
+emission_rect_extents = Vector2( 50, 30 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount_curve = SubResource( 2 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="." index="4"]
+position = Vector2( 53, 25 )
+z_index = -10
+amount = 10
+lifetime = 0.6
+lifetime_randomness = 0.45
+draw_order = 1
+texture = ExtResource( 5 )
+emission_shape = 2
+emission_rect_extents = Vector2( 50, 30 )
+spread = 180.0
+gravity = Vector2( 0, -100 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount = 0.5
+scale_amount_curve = SubResource( 2 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." index="5"]
+position = Vector2( 53, 25 )
+z_index = -10
+amount = 1
+lifetime = 0.7
+draw_order = 1
+texture = ExtResource( 5 )
+emission_shape = 2
+emission_rect_extents = Vector2( 50, 30 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_amount_curve = SubResource( 2 )
+color = Color( 0.545098, 0, 1, 1 )

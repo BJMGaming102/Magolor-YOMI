@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://projectile/BaseProjectile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://_Magolor/characters/magolor/MagolorSpriteFrames.tres" type="SpriteFrames" id=2]
@@ -8,8 +8,8 @@
 [ext_resource path="res://_Magolor/characters/magolor/particles/BlackHole Particles.tscn" type="PackedScene" id=6]
 [ext_resource path="res://_Magolor/characters/magolor/projectiles/BlackHole.gd" type="Script" id=7]
 [ext_resource path="res://_Magolor/characters/magolor/sound/Black Hole.wav" type="AudioStream" id=8]
-[ext_resource path="res://_Magolor/characters/magolor/sound/Poof.wav" type="AudioStream" id=9]
-[ext_resource path="res://_Magolor/characters/magolor/sound/Static Like.wav" type="AudioStream" id=10]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Black Hole 2.wav" type="AudioStream" id=9]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Black Hole Poof 2.wav" type="AudioStream" id=10]
 [ext_resource path="res://_Magolor/characters/magolor/particles/BlackholePoof.tscn" type="PackedScene" id=11]
 [ext_resource path="res://_Magolor/characters/magolor/sound/Electric Hit.wav" type="AudioStream" id=12]
 [ext_resource path="res://mechanics/Hitbox.gd" type="Script" id=13]
@@ -19,7 +19,8 @@
 [ext_resource path="res://_Magolor/characters/magolor/particles/BlackHole Fail.tscn" type="PackedScene" id=17]
 [ext_resource path="res://_Magolor/characters/magolor/projectiles/Fail.gd" type="Script" id=18]
 [ext_resource path="res://_Magolor/characters/magolor/projectiles/Black Hole Rise.gd" type="Script" id=19]
-[ext_resource path="res://_Magolor/characters/magolor/sound/Black Hole Deatth.wav" type="AudioStream" id=20]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Black Hole Death True.wav" type="AudioStream" id=20]
+[ext_resource path="res://_Magolor/characters/magolor/sound/Magolor Soul Blackhole Start.wav" type="AudioStream" id=21]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -129,24 +130,24 @@ lifetime = 3.0
 start_enabled = false
 
 [node name="Black Hole" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
+volume_db = -21.009
 
 [node name="Poof" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 
 [node name="Inhale" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
-stream = ExtResource( 10 )
-volume_db = -15.0
+stream = ExtResource( 21 )
+volume_db = -24.628
 
 [node name="Success" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
 stream = ExtResource( 15 )
-volume_db = 0.731
+volume_db = -8.008
 pitch_scale = 0.83
 
 [node name="Death" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
 stream = ExtResource( 20 )
-volume_db = -8.983
-pitch_scale = 0.83
+volume_db = -4.613
 
 [node name="CollisionBox" parent="." index="2"]
 width = 300
